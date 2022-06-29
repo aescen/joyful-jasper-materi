@@ -1,29 +1,47 @@
-import { useState } from 'react';
-import CartItem from './components/CartItem';
-import Counter from './components/Counter';
-import Login from './components/Login';
+// import { useState } from "react";
+import CounterSoal from "./components/CounterSoal";
+import LoginSoal from "./components/LoginSoal";
+// import CartItem from "./components/CartItem";
+// import Counter from "./components/Counter";
+// import Login from "./components/Login";
 
 function App() {
   // state
-  const [nama, setNama] = useState("Auzan")
-  const [products, setProducts] = useState([
-    "Apel", "Jeruk", "Rambutan", "Pisang", "Anggur"
-  ])
+  // const [nama, setNama] = useState("Auzan");
+  // const [products, setProducts] = useState([
+  //   "Apel",
+  //   "Jeruk",
+  //   "Rambutan",
+  //   "Pisang",
+  //   "Anggur",
+  // ]);
+  // const [obj, setObj] = useState({ name: "skilvul" });
   // setNama("Alpha")
 
   // variabel biasa
   // let name = "Auzan"
   // name = "Alpha"
 
+  // onclick event external
+  // const handleObj = () => {
+  //   setObj({ name: "impact byte" });
+  // };
+
   return (
     <div>
-      <h1 onClick={() => setNama("Alpha")}>{nama}</h1>
+      <CounterSoal />
+      <LoginSoal />
+      {/* onclick external */}
+      {/* <h1 onClick={handleObj}>{obj.name}</h1> */}
 
-      <Login />
+      {/* onclick inline */}
+      {/* <h1 onClick={() => setNama("Alpha")}>{nama}</h1> */}
+
+      {/* <Login />
 
       {products.map((item, index) => (
         <CartItem key={index} product={item} />
-      ))}
+      ))} */}
 
       {/* <CartItem product="apel" />
       <CartItem product="jeruk" />
