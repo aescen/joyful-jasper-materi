@@ -1,6 +1,7 @@
+import Todos from "./components/Todos";
 // import { useState } from "react";
-import CounterSoal from "./components/CounterSoal";
-import LoginSoal from "./components/LoginSoal";
+// import CounterSoal from "./components/CounterSoal";
+// import LoginSoal from "./components/LoginSoal";
 // import CartItem from "./components/CartItem";
 // import Counter from "./components/Counter";
 // import Login from "./components/Login";
@@ -29,8 +30,10 @@ function App() {
 
   return (
     <div>
-      <CounterSoal />
-      <LoginSoal />
+      {/* <h1>Todos</h1> */}
+      <Todos />
+      {/* <CounterSoal />
+      <LoginSoal /> */}
       {/* onclick external */}
       {/* <h1 onClick={handleObj}>{obj.name}</h1> */}
 
