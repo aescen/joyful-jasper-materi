@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import Digimon from "./components/Digimon";
 
 function App() {
   const [name, setName] = useState({});
@@ -19,7 +20,7 @@ function App() {
   useEffect(() => {
     async function getAPI() {
       const result = await axios.get(url);
-      console.log(result);
+      // console.log(result);
       // setName(result.data.name);
       setDataGithub(result.data);
     }
@@ -27,7 +28,7 @@ function App() {
     getAPI();
   }, []);
 
-  console.log(dataGithub);
+  // console.log(dataGithub);
   return (
     <div className="App">
       <h1>Use Effect</h1>
@@ -37,6 +38,10 @@ function App() {
       <button onClick={() => setName(!name)}>Ubah nilai</button>
       <h1>Todos: {todos}</h1>
       <button onClick={() => setTodos(todos + 1)}>Ubah nilai todos</button> */}
+
+
+      <Digimon />
+
     </div>
   );
 }
