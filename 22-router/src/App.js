@@ -11,6 +11,7 @@ import Login from "./components/Login";
 function App() {
   const isLogin = JSON.parse(localStorage.getItem("isLogin"));
   console.log("isLogin", isLogin);
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
 
         <Route
           path="/profile"
@@ -25,6 +27,14 @@ function App() {
         />
       </Routes>
     </BrowserRouter>
+  );
+}
+
+function NotFound() {
+  return (
+    <div>
+      <h1>HALAMAN TIDAK DITEMUKAN</h1>
+    </div>
   );
 }
 
