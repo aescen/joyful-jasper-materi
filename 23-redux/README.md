@@ -14,3 +14,15 @@
 4. Mengubah state dari store redux menggunakan action
    - Export action dari bookSlice
    - Buat button untuk melakukan useDispatch action
+
+
+---
+
+1. buat store (gudang penyimpanan)
+2. buat reducer/slice (rak barang)
+3. buat action (kamampuan untuk mengubah barang)
+4. bungkus app (gudang siap diakses)
+5. data siap diambil pakai useSelector
+6. kalau mau ubah data, pakai dispatch (surat jalan)
+
+![step reux](./step-redux.png)
