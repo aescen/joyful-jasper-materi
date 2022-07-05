@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   totalBooks: 456,
+  totalAuthor: 100,
 };
 
 const bookSlice = createSlice({
@@ -14,8 +15,11 @@ const bookSlice = createSlice({
     borrow: (state) => {
       state.totalBooks--;
     },
+    plusAuthor: (state) => {
+      state.totalAuthor += 100;
+    },
   },
 });
 
 export default bookSlice.reducer;
-export const { borrow } = bookSlice.actions;
+export const { borrow, plusAuthor } = bookSlice.actions;
