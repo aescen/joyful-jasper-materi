@@ -1,5 +1,5 @@
 import "./App.css";
-import Users from "./components/Users";
+// import Users from "./components/Users";
 import User from "./components/User";
 
 import UserContextProvider from "./context/UserContext";
@@ -10,7 +10,7 @@ function App() {
       <UserContextProvider>
         <h1>React Context</h1>
         <User />
-        <Users />
+        {/* <Users /> */}
       </UserContextProvider>
     </div>
   );
