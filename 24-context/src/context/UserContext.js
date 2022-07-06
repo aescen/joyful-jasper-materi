@@ -1,4 +1,5 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import axios from "axios";
 
 // buat dulu setup context dengan createContext
 export const UserContext = createContext();
@@ -9,9 +10,24 @@ const UserContextProvider = (props) => {
     name: "skilvul",
     batch: "Joyfull Jasper",
   });
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const result = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUserData(result.data);
+    };
+
+    getData();
+    console.log(userData);
+  }, []);
 
   return (
-    <UserContext.Provider value={user}>{props.children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, userData }}>
+      {props.children}
+    </UserContext.Provider>
   );
 };
 export default UserContextProvider;
