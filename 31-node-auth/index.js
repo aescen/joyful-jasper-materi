@@ -24,6 +24,19 @@ const users = [
   {
     username: "dolton",
     password: "password123",
+    role: "admin",
+  },
+];
+
+const books = [
+  {
+    books: "Harry Potter",
+  },
+  {
+    books: "Lord of the rings",
+  },
+  {
+    books: "The Secret",
   },
 ];
 
@@ -48,6 +61,7 @@ app.post("/login", (req, res) => {
     const accessToken = jwt.sign(
       {
         username: user.username,
+        role: user.role,
       },
       accessTokenSecret
     );
@@ -57,6 +71,37 @@ app.post("/login", (req, res) => {
     });
   } else {
     res.send("username atau password anda salah");
+  }
+});
+
+// fungsi untuk mengecheck role
+const verifyJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  console.log("auth", authHeader);
+
+  if (authHeader) {
+    jwt.verify(authHeader, accessTokenSecret, (error, user) => {
+      if (error) {
+        return res.sendStatus(401);
+      }
+      req.user = user;
+      next();
+    });
+  } else {
+    res.sendStatus(401);
+  }
+};
+
+// endpoint books hanya boleh diakses oleh role admin
+app.get("/books", verifyJWT, (req, res) => {
+  const { role } = req.user;
+  console.log("role", role);
+  if (role === "admin") {
+    // res.send("ini admin");
+    res.json(books);
+  } else {
+    res.send("anda bukan admin");
+    res.sendStatus(401);
   }
 });
 
