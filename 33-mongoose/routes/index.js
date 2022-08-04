@@ -8,5 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.use("/user", UserRouter);
+// router.use("/course", UserRouter);
+// router.use("/challenge", UserRouter);
 
 module.exports = router;

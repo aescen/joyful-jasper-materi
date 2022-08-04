@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 // buat schema models
-
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
